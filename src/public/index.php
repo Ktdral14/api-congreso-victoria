@@ -12,9 +12,12 @@ if($method == "OPTIONS") {
 
 
 require __DIR__ . '/../vendor/autoload.php';
-require '../src/config/database.php';
+require '../config/database.php';
 
 
 $app = new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
+
+require '../routes/usuarios/registrar.php';
+require '../routes/usuarios/actualizar.php';
 
 $app->run();
