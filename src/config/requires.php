@@ -2,4 +2,4 @@
 
 // Usuario
 require '../routes/usuarios/registrar.php';
-require '../routes/usuarios/actualizar.php';
+require '../routes/usuarios/login.php';
