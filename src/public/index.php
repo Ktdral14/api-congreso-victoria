@@ -17,7 +17,6 @@ require '../config/database.php';
 
 $app = new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
 
-require '../routes/usuarios/registrar.php';
-require '../routes/usuarios/actualizar.php';
+require '../config/requires.php';
 
 $app->run();
