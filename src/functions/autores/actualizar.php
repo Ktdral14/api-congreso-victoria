@@ -1,15 +1,15 @@
 <?php
 
-namespace Functions\Usuarios;
+namespace Functions\Autores;
 
 use Database;
-use PDOException;
+use Exception;
 
 class Actualizar
 {
 
     public function __invoke(
-        $id_usuarios,
+        $id_autores,
         $nombres,
         $a_paterno,
         $a_materno,
@@ -37,7 +37,7 @@ class Actualizar
                 "status" => 200,
                 "body" => "Usuario actualizado"
             ];
-        } catch (PDOException $error) {
+        } catch (Exception $error) {
             return [
                 "error" => true,
                 "status" => 500,

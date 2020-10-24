@@ -3,23 +3,15 @@
 namespace Functions\Usuarios;
 
 use Database;
-use PDOException;
+use Exception;
 
 class Registrar
 {
 
     public function __invoke(
-        $nombres,
-        $a_paterno,
-        $a_materno,
-        $sexo,
-        $fecha_nacimiento,
-        $estado,
-        $ciudad,
-        $colonia,
-        $calle,
-        $num_int,
-        $num_ext
+        $id_autores,
+        $correo,
+        $contrasena
     ) {
 
         try {
@@ -27,23 +19,45 @@ class Registrar
             $db = new Database();
             $db = $db->connectDB();
 
-            $sql = "";
+            $sql = "INSERT INTO usuarios (
+                        id_autores,
+                        correo,
+                        contrasena
+                    ) VALUES (
+                        :id_autores,
+                        :correo,
+                        :contrasena
+                    )";
 
             $stmt = $db->prepare($sql);
+
+            $hash = hash("sha256", $contrasena);
+
+            $stmt->bindParam(':id_autores', $id_autores);
+            $stmt->bindParam(':correo', $correo);
+            $stmt->bindParam(':contrasena', $hash);
+
+            $stmt->execute();
+
+            if ($stmt->rowCount() === 0) {
+                return [
+                    "error" => true,
+                    "status" => 500,
+                    "body" => "Error al registrar"
+                ];
+            }
 
             return [
                 "error" => false,
                 "status" => 200,
-                "body" => "Usuario registrado"
+                "body" => $db->lastInsertId()
             ];
-
-        } catch(PDOException $error) {
+        } catch (Exception $error) {
             return [
                 "error" => true,
                 "status" => 500,
                 "body" => $error->getMessage()
             ];
         }
-
     }
 }
