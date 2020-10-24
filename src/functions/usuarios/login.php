@@ -44,7 +44,7 @@ class Login
 
             $hash = hash("sha256", $contrasena);
 
-            if ($usuario->$contrasena != $hash) {
+            if ($usuario->contrasena != $hash) {
                 return [
                     "error"     => true,
                     "status"    => 500,
@@ -53,7 +53,7 @@ class Login
             }
 
             return [
-                "error"     => true,
+                "error"     => false,
                 "status"    => 200,
                 "body"      => $usuario
             ];

@@ -39,7 +39,7 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
         $num_ext
     );
 
-    if (gettype($autor["body"]) != "integer") {
+    if ((int)$autor["body"] === 0) {
         return $response->withJson($autor)->withStatus(200);
     }
 
