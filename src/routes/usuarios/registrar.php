@@ -5,6 +5,8 @@ use \Slim\Http\Response;
 
 use \Functions\Autores\Registrar as NuevoAutor;
 use \Functions\Usuarios\Registrar;
+use \Functions\Usuarios\GenerarToken;
+use \Functions\Usuarios\EnviarCorreoConfirmarCuenta;
 
 $app->post('/usuarios/registrar', function (Request $request, Response $response) {
     $nombres            = $request->getParam('nombres');
@@ -45,11 +47,32 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
     
     $registrar = new Registrar();
 
+    $generar = new GenerarToken();
+
+    $enviarCorreo = new EnviarCorreoConfirmarCuenta();
+
+    
     $responseBody = $registrar(
         $id_autores,
         $correo,
         $contrasena
     );
 
+    if ($responseBody["error"]) {
+        return $response->withJson($responseBody)->withStatus(200);
+    }
+
+    $responseBody = $generar(
+        $correo
+    );
+
+    if ($responseBody["error"]) {
+        return $response->withJson($responseBody)->withStatus(200);
+    }
+
+    $responseBody = $enviarCorreo(
+        $responseBody["body"],
+        $correo
+    );
     return $response->withJson($responseBody)->withStatus(200);
 });
