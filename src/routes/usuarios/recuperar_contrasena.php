@@ -7,7 +7,7 @@ use Functions\Usuarios\EnviarCorreoRecuperarContrasena;
 use \Functions\Usuarios\GenerarToken;
 
 $app->put('/usuarios/recuperar-contrasena', function (Request $request, Response $response) {
-    $correo   = $request->getParam('correo');
+    $correo = $request->getParam('correo');
 
     $generar = new GenerarToken();
 

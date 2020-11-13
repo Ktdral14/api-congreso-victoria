@@ -3,9 +3,10 @@
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
-use \Functions\Proyectos\Registrar;
+use \Functions\Proyectos\Actualizar;
 
-$app->post('/proyectos/registrar', function (Request $request, Response $response) {
+$app->post('/proyectos/actualizar', function (Request $request, Response $response) {
+    $id_proyectos   = $request->getParam('id_proyectos');
     $id_usuarios    = $request->getParam('id_usuarios');
     $id_categorias  = $request->getParam('id_categorias');
     $introduccion   = $request->getParam('introduccion');
@@ -22,9 +23,10 @@ $app->post('/proyectos/registrar', function (Request $request, Response $respons
     $resultados     = $request->getParam('resultados');
     $url            = $request->getParam('url');
     
-    $registrar = new Registrar();
+    $actualizar = new Actualizar();
     
-    $responseBody = $registrar(
+    $responseBody = $actualizar(
+        $id_proyectos,
         $id_usuarios,
         $id_categorias,
         $introduccion,

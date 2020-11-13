@@ -1,10 +1,10 @@
 <?php
 
-use Functions\Autores\Eliminar;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
 use \Functions\Autores\Registrar as NuevoAutor;
+use Functions\Autores\Eliminar;
 use \Functions\Usuarios\Registrar;
 use \Functions\Usuarios\GenerarToken;
 use \Functions\Usuarios\EnviarCorreoConfirmarCuenta;

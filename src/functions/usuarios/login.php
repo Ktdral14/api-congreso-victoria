@@ -20,7 +20,20 @@ class Login
             $db = new Database();
             $db = $db->connectDB();
 
-            $sql = "SELECT * 
+            $sql = "SELECT 
+                        usuarios.id_usuarios,
+                        usuarios.correo,
+                        autores.nombre,
+                        autores.a_paterno,
+                        autores.a_materno
+                        autores.sexo,
+                        autores.fecha_nacimiento,
+                        autores.estado,
+                        autores.ciudad,
+                        autores.colonia,
+                        autores.calle,
+                        autores.num_int,
+                        autores.num_ext,
                     FROM usuarios
                     JOIN autores
                         ON usuarios.id_autores = autores.id_autores
@@ -43,6 +56,14 @@ class Login
             }
 
             $usuario = $stmt->fetch(PDO::FETCH_OBJ);
+
+            if ($usuario->confirmed === 0) {
+                return [
+                    "error"     => true,
+                    "status"    => 500,
+                    "body"      => "Cuenta sin confirmar"
+                ];
+            }
 
             $hash = hash("sha256", $contrasena);
 
