@@ -5,7 +5,7 @@ namespace Functions\Usuarios;
 use Database;
 use Exception;
 
-class RecuperarContrasena
+class ValidarToken
 {
 
     public function __invoke(
