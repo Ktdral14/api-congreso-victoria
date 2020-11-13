@@ -5,7 +5,7 @@ use \Slim\Http\Response;
 
 use \Functions\Usuarios\CambiarContrasena;
 
-$app->get('/usuarios/cambiar-contrasena', function (Request $request, Response $response) {
+$app->post('/usuarios/cambiar-contrasena', function (Request $request, Response $response) {
     $tk                 = $request->getParam('tk');
     $nueva_contrasena   = $request->getParam('nueva_contrasena');
 

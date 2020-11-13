@@ -15,7 +15,7 @@ $app->put('/usuarios/recuperar-contrasena', function (Request $request, Response
         $correo
     );
 
-    if (!$responseBody["error"]) {
+    if ($responseBody["error"]) {
         return $response->withJson($responseBody)->withStatus(200);
     }
 

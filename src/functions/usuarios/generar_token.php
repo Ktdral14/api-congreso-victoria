@@ -12,7 +12,8 @@ class GenerarToken
         $correo
     ) {
 
-        $tk = random_bytes(100);
+        $tk = openssl_random_pseudo_bytes(16);
+        $tk = bin2hex($tk);
 
         try {
 
@@ -31,7 +32,7 @@ class GenerarToken
 
             $stmt->execute();
 
-            if ($stmt->rowCount() === 0 || $stmt) {
+            if ($stmt->rowCount() == 0 && $stmt) {
                 return [
                     "error"     => true,
                     "status"    => 500,
