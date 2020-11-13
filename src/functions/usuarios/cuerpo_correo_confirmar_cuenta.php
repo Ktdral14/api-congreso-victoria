@@ -10,7 +10,7 @@ class CuerpoConfirmarCuenta
 
     function __construct($tk)
     {
-        $this->link_cambiar_contrasena = Constants::SERVIDOR . 'pagina-confirmar-correo/' . $tk;
+        $this->link_cambiar_contrasena = Constants::SERVIDOR . Constants::CARPETA_SERVIDOR . 'pagina-confirmar-correo/' . $tk;
     }
 
     public function GetBody()

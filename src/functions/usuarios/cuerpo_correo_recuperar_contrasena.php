@@ -10,7 +10,7 @@ class CuerpoCorreoRecuperarContrasena
 
     function __construct($tk)
     {
-        $this->link_cambiar_contrasena = Constants::SERVIDOR . 'api-congreso-victoria/src/public/usuarios/pagina-cambiar-contrasena?tk=' . $tk;
+        $this->link_cambiar_contrasena = Constants::SERVIDOR . Constants::CARPETA_SERVIDOR . 'pagina-cambiar-contrasena/' . $tk;
     }
 
     public function GetBody()

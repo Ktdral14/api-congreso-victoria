@@ -25,7 +25,8 @@ class Login
                     JOIN autores
                         ON usuarios.id_autores = autores.id_autores
                     WHERE
-                        usuarios.correo = :correo";
+                        usuarios.correo = :correo
+                    AND usuarios.deleted = 0";
 
             $stmt = $db->prepare($sql);
 

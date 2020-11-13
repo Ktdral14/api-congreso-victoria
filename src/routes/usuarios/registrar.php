@@ -1,5 +1,6 @@
 <?php
 
+use Functions\Autores\Eliminar;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
@@ -59,6 +60,15 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
     );
 
     if ($responseBody["error"]) {
+
+        $eliminar = new Eliminar();
+
+        $secondaryResponse = $eliminar($id_autores);
+
+        if ($secondaryResponse["error"]) {
+            return $response->withJson($secondaryResponse)->withStatus(200);
+        }
+
         return $response->withJson($responseBody)->withStatus(200);
     }
 

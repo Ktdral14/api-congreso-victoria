@@ -6,7 +6,7 @@ use Exception;
 
 use Mail;
 
-class EnviarCorreo
+class EnviarCorreoRecuperarContrasena
 {
     const ASUNTO = "Recuperación de contraseña Congreso Victoria";
 

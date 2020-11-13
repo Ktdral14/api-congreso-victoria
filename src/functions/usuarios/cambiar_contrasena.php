@@ -31,7 +31,7 @@ class CambiarContrasena
 
             $stmt->execute();
 
-            if ($stmt->rowCount() === 0 || $stmt) {
+            if ($stmt->rowCount() === 0 && $stmt) {
                 return [
                     "error"     => true,
                     "status"    => 500,
