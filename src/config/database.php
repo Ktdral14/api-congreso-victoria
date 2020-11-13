@@ -4,16 +4,16 @@ class Database
 {
 
     // Localhost (kt)
-    private $host = 'localhost';
-    private $user = 'root';
-    private $pass = '';
-    private $db = 'mantehostingacm_cotacyt';
+    // private $host    = 'localhost';
+    // private $user    = 'root';
+    // private $pass    = '';
+    // private $db      = 'mantehostingacm_cotacyt';
 
     // ACM
-    // private $host = 'mante.hosting.acm.org';
-    // private $user = 'mantehostingacm_chino';
-    // private $pass = 'tecmante159357';
-    // private $db = 'mantehostingacm_congreso_victoria';
+    private $host   = 'mante.hosting.acm.org';
+    private $user   = 'mantehostingacm_chino';
+    private $pass   = 'tecmante159357';
+    private $db     = 'mantehostingacm_congreso_victoria';
 
     public function connectDB()
     {

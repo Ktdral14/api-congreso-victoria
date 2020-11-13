@@ -1,12 +1,11 @@
 <?php
 
-use Functions\Usuarios\Login;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
+use \Functions\Usuarios\Login;
 
-
-$app->get('/usuarios/login', function (Request $request, Response $response) {
+$app->post('/usuarios/login', function (Request $request, Response $response) {
     $correo      = $request->getParam('correo');
     $contrasena = $request->getParam('contrasena');
     

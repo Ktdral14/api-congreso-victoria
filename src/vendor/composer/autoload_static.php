@@ -27,6 +27,8 @@ class ComposerStaticInit4a36e89439aa2446a97e40696b43fb76
         ),
         'F' => 
         array (
+            'Functions\\Usuarios\\' => 19,
+            'Functions\\Autores\\' => 18,
             'Functions\\' => 10,
             'FastRoute\\' => 10,
         ),
@@ -52,6 +54,14 @@ class ComposerStaticInit4a36e89439aa2446a97e40696b43fb76
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
+        ),
+        'Functions\\Usuarios\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/functions/usuarios',
+        ),
+        'Functions\\Autores\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/functions/autores',
         ),
         'Functions\\' => 
         array (

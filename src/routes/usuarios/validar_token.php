@@ -3,7 +3,7 @@
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
-use Functions\Usuarios\ValidarToken;
+use \Functions\Usuarios\ValidarToken;
 
 $app->get('/usuarios/validar-token', function (Request $request, Response $response) {
     $tk      = $request->getParam('tk');

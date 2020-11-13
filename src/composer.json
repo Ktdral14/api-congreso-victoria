@@ -5,7 +5,9 @@
   },
   "autoload": {
     "psr-4": {
-      "Functions\\": "functions/"
+      "Functions\\": "functions/",
+      "Functions\\Autores\\": "functions/autores/",
+      "Functions\\Usuarios\\": "functions/usuarios/"
     }
   }
 }

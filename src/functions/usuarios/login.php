@@ -2,9 +2,10 @@
 
 namespace Functions\Usuarios;
 
-use Database;
 use Exception;
 use PDO;
+
+use Database;
 
 class Login
 {

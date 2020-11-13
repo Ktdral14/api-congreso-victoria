@@ -17,9 +17,12 @@ class EnviarCorreo
         try {
             $mail = Mail::configureMail();
             
-            $body = file_get_contents("");
+            $body = new CuerpoCorreoRecuperarContrasena($tk);
+            $body = $body->GetBody();
+
             $mail->addAddress($correo);
-            $mail->Subject = $this->ASUNTO;;
+
+            $mail->Subject = $this::ASUNTO;
             $mail->Body = $body;
             $sended = $mail->send();
 
@@ -27,7 +30,7 @@ class EnviarCorreo
                 return [
                     "error"     => true,
                     "status"    => 500,
-                    "body"      => "Error al generar token"
+                    "body"      => "Error al enviar el correo"
                 ];
             }
 

@@ -3,8 +3,8 @@
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
-use Functions\Usuarios\Registrar;
-use Functions\Autores\Registrar as NuevoAutor;
+use \Functions\Autores\Registrar as NuevoAutor;
+use \Functions\Usuarios\Registrar;
 
 $app->post('/usuarios/registrar', function (Request $request, Response $response) {
     $nombres            = $request->getParam('nombres');
@@ -20,11 +20,9 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
     $num_ext            = $request->getParam('num_ext');
     $correo             = $request->getParam('correo');
     $contrasena            = $request->getParam('contrasena');
-
-    $registrar = new Registrar();
-
+    
     $nuevoAutor = new NuevoAutor();
-
+    
     $autor = $nuevoAutor(
         $nombres,
         $a_paterno,
@@ -38,12 +36,14 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
         $num_int,
         $num_ext
     );
-
+    
     if ((int)$autor["body"] === 0) {
         return $response->withJson($autor)->withStatus(200);
     }
-
+    
     $id_autores = $autor["body"];
+    
+    $registrar = new Registrar();
 
     $responseBody = $registrar(
         $id_autores,

@@ -10,13 +10,13 @@ if($method == "OPTIONS") {
     die();
 }
 
-
 require __DIR__ . '/../vendor/autoload.php';
-require '../config/database.php';
-
 
 $app = new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
 
 require '../config/requires.php';
+require '../config/database.php';
+require '../config/constants.php';
+require '../config/mail.php';
 
 $app->run();

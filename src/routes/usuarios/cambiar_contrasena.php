@@ -3,7 +3,7 @@
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
-use Functions\Usuarios\CambiarContrasena;
+use \Functions\Usuarios\CambiarContrasena;
 
 $app->get('/usuarios/cambiar-contrasena', function (Request $request, Response $response) {
     $tk                 = $request->getParam('tk');
