@@ -9,6 +9,7 @@ class Registrar
 {
 
     public function __invoke(
+        $id_usuarios,
         $nombres,
         $a_paterno,
         $a_materno,
@@ -28,6 +29,7 @@ class Registrar
             $db = $db->connectDB();
 
             $sql = "INSERT INTO autores (
+                        id_usuarios,
                         nombres,
                         a_paterno,
                         a_materno,
@@ -40,6 +42,7 @@ class Registrar
                         num_int,
                         num_ext
                     ) VALUES (
+                        :id_usuarios,
                         :nombres,
                         :a_paterno,
                         :a_materno,
@@ -55,6 +58,7 @@ class Registrar
 
             $stmt = $db->prepare($sql);
 
+            $stmt->bindParam(':id_usuarios', $id_usuarios,);
             $stmt->bindParam(':nombres', $nombres,);
             $stmt->bindParam(':a_paterno', $a_paterno,);
             $stmt->bindParam(':a_materno', $a_materno,);

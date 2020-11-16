@@ -22,11 +22,29 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
     $num_int            = $request->getParam('num_int');
     $num_ext            = $request->getParam('num_ext');
     $correo             = $request->getParam('correo');
-    $contrasena            = $request->getParam('contrasena');
-    
+    $contrasena         = $request->getParam('contrasena');
+
+    $registrar = new Registrar();
+
+    $generar = new GenerarToken();
+
+    $enviarCorreo = new EnviarCorreoConfirmarCuenta();
+
     $nuevoAutor = new NuevoAutor();
-    
+
+    $responseBody = $registrar(
+        $correo,
+        $contrasena
+    );
+
+    if ($responseBody["error"]) {
+        return $response->withJson($responseBody)->withStatus(200);
+    }
+
+    $id_usuarios = $responseBody["body"];
+
     $autor = $nuevoAutor(
+        $id_usuarios,
         $nombres,
         $a_paterno,
         $a_materno,
@@ -39,37 +57,9 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
         $num_int,
         $num_ext
     );
-    
+
     if ((int)$autor["body"] === 0) {
         return $response->withJson($autor)->withStatus(200);
-    }
-    
-    $id_autores = $autor["body"];
-    
-    $registrar = new Registrar();
-
-    $generar = new GenerarToken();
-
-    $enviarCorreo = new EnviarCorreoConfirmarCuenta();
-
-    
-    $responseBody = $registrar(
-        $id_autores,
-        $correo,
-        $contrasena
-    );
-
-    if ($responseBody["error"]) {
-
-        $eliminar = new Eliminar();
-
-        $secondaryResponse = $eliminar($id_autores);
-
-        if ($secondaryResponse["error"]) {
-            return $response->withJson($secondaryResponse)->withStatus(200);
-        }
-
-        return $response->withJson($responseBody)->withStatus(200);
     }
 
     $responseBody = $generar(
@@ -84,5 +74,6 @@ $app->post('/usuarios/registrar', function (Request $request, Response $response
         $responseBody["body"],
         $correo
     );
+    
     return $response->withJson($responseBody)->withStatus(200);
 });

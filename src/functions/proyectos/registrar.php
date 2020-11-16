@@ -16,6 +16,7 @@ class Registrar
         $importancia,
         $alineacion,
         $descripcion,
+        $identificacion,
         $marco,
         $etapas,
         $experiencia,
@@ -39,6 +40,7 @@ class Registrar
                         importancia,
                         alineacion,
                         descripcion,
+                        identificacion,
                         marco,
                         etapas,
                         experiencia,
@@ -55,6 +57,7 @@ class Registrar
                         :importancia,
                         :alineacion,
                         :descripcion,
+                        :identificacion,
                         :marco,
                         :etapas,
                         :experiencia,
@@ -67,20 +70,21 @@ class Registrar
 
             $stmt = $db->prepare($sql);
 
-            $stmt->bindParam(':id_usuarios,', $id_usuarios);
-            $stmt->bindParam(':id_categorias,', $id_categorias);
-            $stmt->bindParam(':introduccion,', $introduccion);
-            $stmt->bindParam(':objetivos,',      $objetivos);
-            $stmt->bindParam(':importancia,', $importancia);
-            $stmt->bindParam(':alineacion,', $alineacion);
-            $stmt->bindParam(':descripcion,', $descripcion);
-            $stmt->bindParam(':marco,', $marco);
-            $stmt->bindParam(':etapas,', $etapas);
-            $stmt->bindParam(':experiencia,', $experiencia);
-            $stmt->bindParam(':tipificacion,', $tipificacion);
-            $stmt->bindParam(':impacto,', $impacto);
-            $stmt->bindParam(':factibilidad,', $factibilidad);
-            $stmt->bindParam(':resultados,', $resultados);
+            $stmt->bindParam(':id_usuarios', $id_usuarios);
+            $stmt->bindParam(':id_categorias', $id_categorias);
+            $stmt->bindParam(':introduccion', $introduccion);
+            $stmt->bindParam(':objetivos',      $objetivos);
+            $stmt->bindParam(':importancia', $importancia);
+            $stmt->bindParam(':alineacion', $alineacion);
+            $stmt->bindParam(':descripcion', $descripcion);
+            $stmt->bindParam(':identificacion', $identificacion);
+            $stmt->bindParam(':marco', $marco);
+            $stmt->bindParam(':etapas', $etapas);
+            $stmt->bindParam(':experiencia', $experiencia);
+            $stmt->bindParam(':tipificacion', $tipificacion);
+            $stmt->bindParam(':impacto', $impacto);
+            $stmt->bindParam(':factibilidad', $factibilidad);
+            $stmt->bindParam(':resultados', $resultados);
             $stmt->bindParam(':url', $url);
 
             $stmt->execute();
@@ -96,7 +100,7 @@ class Registrar
             return [
                 "error" => false,
                 "status" => 200,
-                "body" => "Proyecto registrado"
+                "body" => $db->lastInsertId()
             ];
         } catch (Exception $error) {
             return [

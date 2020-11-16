@@ -6,13 +6,13 @@ header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Conte
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 $method = $_SERVER['REQUEST_METHOD'];
-if($method == "OPTIONS") {
+if ($method == "OPTIONS") {
     die();
 }
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
+$app = new \Slim\App(['settings' => ['displayErrorDetails' => true, 'addContentLengthHeader' => false,]]);
 
 require '../config/requires.php';
 require '../config/database.php';

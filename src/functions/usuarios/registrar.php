@@ -9,7 +9,6 @@ class Registrar
 {
 
     public function __invoke(
-        $id_autores,
         $correo,
         $contrasena
     ) {
@@ -20,11 +19,9 @@ class Registrar
             $db = $db->connectDB();
 
             $sql = "INSERT INTO usuarios (
-                        id_autores,
                         correo,
                         contrasena
                     ) VALUES (
-                        :id_autores,
                         :correo,
                         :contrasena
                     )";
@@ -32,8 +29,7 @@ class Registrar
             $stmt = $db->prepare($sql);
 
             $hash = hash("sha256", $contrasena);
-
-            $stmt->bindParam(':id_autores', $id_autores);
+            
             $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':contrasena', $hash);
 

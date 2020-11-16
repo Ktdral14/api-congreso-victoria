@@ -18,7 +18,7 @@ class ConfirmarCuenta
             $db = $db->connectDB();
 
             $sql = "UPDATE usuarios SET
-                        confirmado = 1,
+                        confirmed = 1,
                         tk = ''
                     WHERE
                         usuarios.tk = :tk";

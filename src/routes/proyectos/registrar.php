@@ -1,5 +1,6 @@
 <?php
 
+use Functions\AutoresProjectos\Registrar as AutoresProjectosRegistrar;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
@@ -13,6 +14,7 @@ $app->post('/proyectos/registrar', function (Request $request, Response $respons
     $importancia    = $request->getParam('importancia');
     $alineacion     = $request->getParam('alineacion');
     $descripcion    = $request->getParam('descripcion');
+    $identificacion = $request->getParam('identificacion');
     $marco          = $request->getParam('marco');
     $etapas         = $request->getParam('etapas');
     $experiencia    = $request->getParam('experiencia');
@@ -21,6 +23,7 @@ $app->post('/proyectos/registrar', function (Request $request, Response $respons
     $factibilidad   = $request->getParam('factibilidad');
     $resultados     = $request->getParam('resultados');
     $url            = $request->getParam('url');
+    $ids_autores    = $request->getParam('ids_autores');
     
     $registrar = new Registrar();
     
@@ -32,6 +35,7 @@ $app->post('/proyectos/registrar', function (Request $request, Response $respons
         $importancia,
         $alineacion,
         $descripcion,
+        $identificacion,
         $marco,
         $etapas,
         $experiencia,
@@ -40,6 +44,19 @@ $app->post('/proyectos/registrar', function (Request $request, Response $respons
         $factibilidad,
         $resultados,
         $url
+    );
+
+    if ($responseBody["error"]) {
+        return $response->withJson($responseBody)->withStatus(200);
+    }
+
+    $id_proyectos = $responseBody["body"];
+
+    $agregar_autores = new AutoresProjectosRegistrar;
+
+    $responseBody = $agregar_autores(
+        $ids_autores,
+        $id_proyectos
     );
     
     return $response->withJson($responseBody)->withStatus(200);

@@ -6,40 +6,23 @@ use Exception;
 use PDO;
 
 use Database;
+use Functions\Autores\SelectAllPerProject;
 
 class Login
 {
-
     public function __invoke(
         $correo,
         $contrasena
     ) {
-
         try {
-
             $db = new Database();
             $db = $db->connectDB();
 
-            $sql = "SELECT 
-                        usuarios.id_usuarios,
-                        usuarios.correo,
-                        autores.nombre,
-                        autores.a_paterno,
-                        autores.a_materno
-                        autores.sexo,
-                        autores.fecha_nacimiento,
-                        autores.estado,
-                        autores.ciudad,
-                        autores.colonia,
-                        autores.calle,
-                        autores.num_int,
-                        autores.num_ext,
+            $sql = "SELECT *
                     FROM usuarios
-                    JOIN autores
-                        ON usuarios.id_autores = autores.id_autores
                     WHERE
-                        usuarios.correo = :correo
-                    AND usuarios.deleted = 0";
+                        correo = :correo
+                    AND deleted = 0";
 
             $stmt = $db->prepare($sql);
 
@@ -74,6 +57,16 @@ class Login
                     "body"      => "Contraseña incorrecta"
                 ];
             }
+
+            $getAll = new SelectAllPerProject();
+
+            $autores = $getAll($usuario->id_usuario);
+
+            if ($autores["error"]) {
+                return $autores;
+            }
+
+            $usuario->autores = $autores["body"];
 
             return [
                 "error"     => false,
