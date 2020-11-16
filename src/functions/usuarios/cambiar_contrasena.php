@@ -44,7 +44,7 @@ class CambiarContrasena
             return [
                 "error"     => false,
                 "status"    => 200,
-                "body"      => "Contrasenia cambiada"
+                "body"      => utf8_encode("Contrasenia cambiada")
             ];
         } catch (Exception $error) {
             return [
