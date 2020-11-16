@@ -6,7 +6,7 @@ use \Slim\Http\Response;
 
 use \Functions\Propuestas\Registrar;
 
-$app->post('/proyectos/registrar', function (Request $request, Response $response) {
+$app->post('/propuestas/registrar', function (Request $request, Response $response) {
     $id_usuarios        = $request->getParam('id_usuarios');
     $nombre_propuesta	= $request->getParam('nombre_propuesta');
     $p_aspirante        = $request->getParam('p_aspirante');
