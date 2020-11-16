@@ -1,9 +1,9 @@
 <?php
 
-use Functions\Propuestas\GuardarArchivo;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
+use \Functions\Propuestas\GuardarArchivo;
 use \Functions\Propuestas\Registrar;
 
 $app->post('/propuestas/registrar', function (Request $request, Response $response) {
@@ -14,17 +14,17 @@ $app->post('/propuestas/registrar', function (Request $request, Response $respon
     $t_aspirante        = $request->getParam('t_aspirante');
 
     $archivos_subidos = $request->getUploadedFiles();
-    $carta              = $archivos_subidos['carta'];
-    $c_postulacion      = $archivos_subidos['c_postulacion'];
-    $alineacion         = $archivos_subidos['alineacion'];
-    $propuesta          = $archivos_subidos['propuesta'];
+    $carta          = $archivos_subidos['carta'];
+    $c_postulacion  = $archivos_subidos['c_postulacion'];
+    $alineacion     = $archivos_subidos['alineacion'];
+    $propuesta      = $archivos_subidos['propuesta'];
 
     $guardarArchivo = new GuardarArchivo;
 
-    $carta = $guardarArchivo($carta, $id_usuarios, "_carta");
-    $c_postulacion = $guardarArchivo($c_postulacion, $id_usuarios, "_c_postulacion");
-    $alineacion = $guardarArchivo($alineacion, $id_usuarios, "_alineacion");
-    $propuesta = $guardarArchivo($propuesta, $id_usuarios, "_propuesta");
+    $carta          = $guardarArchivo($carta, $id_usuarios, "_carta");
+    $c_postulacion  = $guardarArchivo($c_postulacion, $id_usuarios, "_c_postulacion");
+    $alineacion     = $guardarArchivo($alineacion, $id_usuarios, "_alineacion");
+    $propuesta      = $guardarArchivo($propuesta, $id_usuarios, "_propuesta");
 
     $registrar = new Registrar();
 

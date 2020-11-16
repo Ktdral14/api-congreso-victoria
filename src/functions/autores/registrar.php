@@ -2,8 +2,9 @@
 
 namespace Functions\Autores;
 
-use Database;
 use Exception;
+
+use Config\Database;
 
 class Registrar
 {

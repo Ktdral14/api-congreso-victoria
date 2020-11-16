@@ -1,17 +1,17 @@
 <?php
 
-namespace Functions\Usuarios;
+namespace Functions\Propuestas;
 
 use Exception;
+use PDO;
 
 use Config\Database;
 
-class Registrar
+class SelectOne
 {
 
     public function __invoke(
-        $correo,
-        $contrasena
+        $id_usuarios
     ) {
 
         try {
@@ -19,20 +19,13 @@ class Registrar
             $db = new Database();
             $db = $db->connectDB();
 
-            $sql = "INSERT INTO usuarios (
-                        correo,
-                        contrasena
-                    ) VALUES (
-                        :correo,
-                        :contrasena
-                    )";
+            $sql = "SELECT * 
+                    FROM propuestas
+                    WHERE id_usuarios = :id_usuarios";
 
             $stmt = $db->prepare($sql);
 
-            $hash = hash("sha256", $contrasena);
-            
-            $stmt->bindParam(':correo', $correo);
-            $stmt->bindParam(':contrasena', $hash);
+            $stmt->bindParam(':id_usuarios', $id_usuarios);
 
             $stmt->execute();
 
@@ -40,14 +33,14 @@ class Registrar
                 return [
                     "error" => true,
                     "status" => 500,
-                    "body" => "Error al registrar"
+                    "body" => "No data"
                 ];
             }
 
             return [
                 "error" => false,
                 "status" => 200,
-                "body" => $db->lastInsertId()
+                "body" => $stmt->fetchColumn(PDO::FETCH_ASSOC)
             ];
         } catch (Exception $error) {
             return [

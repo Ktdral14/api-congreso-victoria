@@ -3,7 +3,7 @@
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 
-use Functions\Usuarios\EnviarCorreoRecuperarContrasena;
+use \Functions\Usuarios\EnviarCorreoRecuperarContrasena;
 use \Functions\Usuarios\GenerarToken;
 
 $app->put('/usuarios/recuperar-contrasena', function (Request $request, Response $response) {

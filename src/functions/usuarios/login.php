@@ -5,8 +5,10 @@ namespace Functions\Usuarios;
 use Exception;
 use PDO;
 
-use Database;
-use Functions\Autores\SelectAllPerProject;
+use Config\Database;
+use \Functions\Autores\SelectAllPerProject;
+use \Functions\Propuestas\SelectOne as SelectOnePropuesta;
+use \Functions\Proyectos\SelectOne as SelectOneProyectos;
 
 class Login
 {
@@ -67,6 +69,26 @@ class Login
             }
 
             $usuario->autores = $autores["body"];
+
+            $getOnePropuesta = new SelectOnePropuesta();
+
+            $propuesta = $getOnePropuesta($usuario->id_usuarios);
+
+            if ($propuesta["error"]) {
+                return $propuesta;
+            }
+
+            $usuario->propuesta = $propuesta["body"];
+
+            $getOneProyectos = new SelectOneProyectos();
+
+            $proyectos = $getOneProyectos($usuario->id_usuarios);
+
+            if ($proyectos["error"]) {
+                return $proyectos;
+            }
+
+            $usuario->proyectos = $proyectos["body"];
 
             return [
                 "error"     => false,

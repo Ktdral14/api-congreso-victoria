@@ -1,5 +1,7 @@
 <?php
 
+namespace Config;
+
 class Constants {
 
     const CARPETA_ARCHIVOS_SUBIDOS  = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR;

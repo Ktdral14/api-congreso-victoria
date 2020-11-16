@@ -2,8 +2,9 @@
 
 namespace Functions\Usuarios;
 
-use Database;
 use Exception;
+
+use Config\Database;
 
 class CambiarContrasena
 {

@@ -2,8 +2,9 @@
 
 namespace Functions\Propuestas;
 
-use Database;
 use Exception;
+
+use Config\Database;
 
 class Registrar
 {

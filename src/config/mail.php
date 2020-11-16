@@ -1,8 +1,11 @@
 <?php
 
+namespace Config;
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 
-use \Constants;
+use Config\Constants;
 
 class Mail
 {

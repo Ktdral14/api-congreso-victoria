@@ -5,7 +5,7 @@ namespace Functions\Autores;
 use Exception;
 use PDO;
 
-use Database;
+use Config\Database;
 
 class SelectAllPerProject
 {

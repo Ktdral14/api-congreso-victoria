@@ -2,7 +2,7 @@
 
 namespace Functions\Usuarios;
 
-use Constants;
+use Config\Constants;
 
 class CuerpoCorreoRecuperarContrasena
 {

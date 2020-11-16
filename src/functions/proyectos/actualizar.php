@@ -2,8 +2,9 @@
 
 namespace Functions\Proyectos;
 
-use Database;
 use Exception;
+
+use Config\Database;
 
 class Actualizar
 {

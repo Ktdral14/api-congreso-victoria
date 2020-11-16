@@ -4,7 +4,7 @@ namespace Functions\Usuarios;
 
 use Exception;
 
-use Mail;
+use Config\Mail;
 
 class EnviarCorreoRecuperarContrasena
 {

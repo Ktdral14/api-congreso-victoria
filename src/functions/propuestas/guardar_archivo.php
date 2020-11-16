@@ -4,7 +4,7 @@ namespace Functions\Propuestas;
 
 use Slim\Http\UploadedFile;
 
-use Constants;
+use Config\Constants;
 
 class GuardarArchivo
 {
