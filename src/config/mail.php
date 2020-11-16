@@ -2,7 +2,7 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-use Constants;
+use \Constants;
 
 class Mail
 {

@@ -1,6 +1,5 @@
 <?php
 
-use Functions\AutoresProjectos\Registrar as AutoresProjectosRegistrar;
 use \Slim\Http\Request;
 use \Slim\Http\Response;
 

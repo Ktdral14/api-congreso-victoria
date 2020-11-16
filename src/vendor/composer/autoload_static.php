@@ -28,6 +28,7 @@ class ComposerStaticInit4118f9b3a06dc05a66fec541b16eab6e
         'F' => 
         array (
             'Functions\\Usuarios\\' => 19,
+            'Functions\\Propuestas\\' => 21,
             'Functions\\Autores\\' => 18,
             'Functions\\' => 10,
             'FastRoute\\' => 10,
@@ -58,6 +59,10 @@ class ComposerStaticInit4118f9b3a06dc05a66fec541b16eab6e
         'Functions\\Usuarios\\' => 
         array (
             0 => __DIR__ . '/../..' . '/functions/usuarios',
+        ),
+        'Functions\\Propuestas\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/functions/propuestas',
         ),
         'Functions\\Autores\\' => 
         array (
@@ -105,6 +110,8 @@ class ComposerStaticInit4118f9b3a06dc05a66fec541b16eab6e
         'Functions\\Autores\\Eliminar' => __DIR__ . '/../..' . '/functions/autores/eliminar.php',
         'Functions\\Autores\\Registrar' => __DIR__ . '/../..' . '/functions/autores/registrar.php',
         'Functions\\Autores\\SelectAllPerProject' => __DIR__ . '/../..' . '/functions/autores/select_all_per_project.php',
+        'Functions\\Propuestas\\GuardarArchivo' => __DIR__ . '/../..' . '/functions/propuestas/guardar_archivo.php',
+        'Functions\\Propuestas\\Registrar' => __DIR__ . '/../..' . '/functions/propuestas/registrar.php',
         'Functions\\Proyectos\\Actualizar' => __DIR__ . '/../..' . '/functions/proyectos/actualizar.php',
         'Functions\\Proyectos\\Registrar' => __DIR__ . '/../..' . '/functions/proyectos/registrar.php',
         'Functions\\Usuarios\\CambiarContrasena' => __DIR__ . '/../..' . '/functions/usuarios/cambiar_contrasena.php',

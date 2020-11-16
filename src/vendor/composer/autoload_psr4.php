@@ -12,6 +12,7 @@ return array(
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
     'Functions\\Usuarios\\' => array($baseDir . '/functions/usuarios'),
+    'Functions\\Propuestas\\' => array($baseDir . '/functions/propuestas'),
     'Functions\\Autores\\' => array($baseDir . '/functions/autores'),
     'Functions\\' => array($baseDir . '/functions'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),

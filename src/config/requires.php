@@ -10,3 +10,6 @@ require '../routes/usuarios/registrar.php';
 // Proyectos
 require '../routes/proyectos/actualizar.php';
 require '../routes/proyectos/registrar.php';
+
+// Propuestas
+require '../routes/propuestas/registrar.php';

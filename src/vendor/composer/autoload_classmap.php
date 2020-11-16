@@ -27,6 +27,8 @@ return array(
     'Functions\\Autores\\Eliminar' => $baseDir . '/functions/autores/eliminar.php',
     'Functions\\Autores\\Registrar' => $baseDir . '/functions/autores/registrar.php',
     'Functions\\Autores\\SelectAllPerProject' => $baseDir . '/functions/autores/select_all_per_project.php',
+    'Functions\\Propuestas\\GuardarArchivo' => $baseDir . '/functions/propuestas/guardar_archivo.php',
+    'Functions\\Propuestas\\Registrar' => $baseDir . '/functions/propuestas/registrar.php',
     'Functions\\Proyectos\\Actualizar' => $baseDir . '/functions/proyectos/actualizar.php',
     'Functions\\Proyectos\\Registrar' => $baseDir . '/functions/proyectos/registrar.php',
     'Functions\\Usuarios\\CambiarContrasena' => $baseDir . '/functions/usuarios/cambiar_contrasena.php',
