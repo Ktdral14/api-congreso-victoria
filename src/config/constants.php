@@ -2,7 +2,7 @@
 
 class Constants {
 
-    const CARPETA_ARCHIVOS_SUBIDOS  = __DIR__ .DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR;
+    const CARPETA_ARCHIVOS_SUBIDOS  = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR;
     const CARPETA_SERVIDOR          = "premio-estatal-components/#/";
     const CORREO_SOPORTE            = "noreply_congresovictoria@mante.acm.org";
     const CERTIFICADO_CORREO        = "ssl";
