@@ -60,7 +60,7 @@ class Login
 
             $getAll = new SelectAllPerProject();
 
-            $autores = $getAll($usuario->id_usuario);
+            $autores = $getAll($usuario->id_usuarios);
 
             if ($autores["error"]) {
                 return $autores;
