@@ -29,7 +29,6 @@ class ComposerStaticInit4118f9b3a06dc05a66fec541b16eab6e
         array (
             'Functions\\Usuarios\\' => 19,
             'Functions\\Autores\\' => 18,
-            'Functions\\AutoresProjectos\\' => 27,
             'Functions\\' => 10,
             'FastRoute\\' => 10,
         ),
@@ -63,10 +62,6 @@ class ComposerStaticInit4118f9b3a06dc05a66fec541b16eab6e
         'Functions\\Autores\\' => 
         array (
             0 => __DIR__ . '/../..' . '/functions/autores',
-        ),
-        'Functions\\AutoresProjectos\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/functions/autores_proyectos',
         ),
         'Functions\\' => 
         array (
@@ -106,7 +101,6 @@ class ComposerStaticInit4118f9b3a06dc05a66fec541b16eab6e
         'FastRoute\\RouteCollector' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteCollector.php',
         'FastRoute\\RouteParser' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteParser.php',
         'FastRoute\\RouteParser\\Std' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteParser/Std.php',
-        'Functions\\AutoresProjectos\\Registrar' => __DIR__ . '/../..' . '/functions/autores_proyectos/registrar.php',
         'Functions\\Autores\\Actualizar' => __DIR__ . '/../..' . '/functions/autores/actualizar.php',
         'Functions\\Autores\\Eliminar' => __DIR__ . '/../..' . '/functions/autores/eliminar.php',
         'Functions\\Autores\\Registrar' => __DIR__ . '/../..' . '/functions/autores/registrar.php',

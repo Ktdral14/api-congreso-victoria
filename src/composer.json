@@ -7,8 +7,7 @@
     "psr-4": {
       "Functions\\": "functions/",
       "Functions\\Autores\\": "functions/autores/",
-      "Functions\\Usuarios\\": "functions/usuarios/",
-      "Functions\\AutoresProjectos\\": "functions/autores_proyectos/"
+      "Functions\\Usuarios\\": "functions/usuarios/"
     }
   }
 }

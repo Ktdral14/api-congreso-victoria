@@ -13,7 +13,6 @@ return array(
     'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
     'Functions\\Usuarios\\' => array($baseDir . '/functions/usuarios'),
     'Functions\\Autores\\' => array($baseDir . '/functions/autores'),
-    'Functions\\AutoresProjectos\\' => array($baseDir . '/functions/autores_proyectos'),
     'Functions\\' => array($baseDir . '/functions'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
 );

@@ -23,7 +23,6 @@ return array(
     'FastRoute\\RouteCollector' => $vendorDir . '/nikic/fast-route/src/RouteCollector.php',
     'FastRoute\\RouteParser' => $vendorDir . '/nikic/fast-route/src/RouteParser.php',
     'FastRoute\\RouteParser\\Std' => $vendorDir . '/nikic/fast-route/src/RouteParser/Std.php',
-    'Functions\\AutoresProjectos\\Registrar' => $baseDir . '/functions/autores_proyectos/registrar.php',
     'Functions\\Autores\\Actualizar' => $baseDir . '/functions/autores/actualizar.php',
     'Functions\\Autores\\Eliminar' => $baseDir . '/functions/autores/eliminar.php',
     'Functions\\Autores\\Registrar' => $baseDir . '/functions/autores/registrar.php',

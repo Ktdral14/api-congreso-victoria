@@ -23,7 +23,6 @@ $app->post('/proyectos/registrar', function (Request $request, Response $respons
     $factibilidad   = $request->getParam('factibilidad');
     $resultados     = $request->getParam('resultados');
     $url            = $request->getParam('url');
-    $ids_autores    = $request->getParam('ids_autores');
     
     $registrar = new Registrar();
     
@@ -44,19 +43,6 @@ $app->post('/proyectos/registrar', function (Request $request, Response $respons
         $factibilidad,
         $resultados,
         $url
-    );
-
-    if ($responseBody["error"]) {
-        return $response->withJson($responseBody)->withStatus(200);
-    }
-
-    $id_proyectos = $responseBody["body"];
-
-    $agregar_autores = new AutoresProjectosRegistrar;
-
-    $responseBody = $agregar_autores(
-        $ids_autores,
-        $id_proyectos
     );
     
     return $response->withJson($responseBody)->withStatus(200);

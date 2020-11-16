@@ -34,7 +34,7 @@ class CuerpoCorreoRecuperarContrasena
                     </div>
                     <div>
                         <form action="' . $this->link_cambiar_contrasena . '" method="get">
-                            <button class="btn btn-primary ">Recuperar Contraseña</button>
+                            <a class="btn btn-primary ">Recuperar Contraseña</a>
                         </form>
                     </div>
                 </div>
