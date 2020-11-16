@@ -44,7 +44,7 @@ class CambiarContrasena
             return [
                 "error"     => false,
                 "status"    => 200,
-                "body"      => "Contraseña cambiada"
+                "body"      => "Contrasenia cambiada"
             ];
         } catch (Exception $error) {
             return [

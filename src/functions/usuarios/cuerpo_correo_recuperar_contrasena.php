@@ -33,9 +33,7 @@ class CuerpoCorreoRecuperarContrasena
                         <p style="font-size: 20px; ">Entra al siguiente link para reestablecerla.</p>
                     </div>
                     <div>
-                        <form action="' . $this->link_cambiar_contrasena . '" method="get">
-                            <a class="btn btn-primary ">Recuperar Contraseña</a>
-                        </form>
+                        <a href="' . $this->link_cambiar_contrasena . '" class="btn btn-primary ">Recuperar Contraseña</a>
                     </div>
                 </div>
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -14,5 +14,3 @@ class Constants {
     const SERVIDOR_CORREO           = "mail.mante.hosting.acm.org";
 
 }
-
-echo Constants::CARPETA_ARCHIVOS_SUBIDOS;
