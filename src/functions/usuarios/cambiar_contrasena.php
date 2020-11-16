@@ -26,7 +26,9 @@ class CambiarContrasena
 
             $stmt = $db->prepare($sql);
 
-            $stmt->bindParam(':nueva_contrasena', $nueva_contrasena);
+            $hash = hash("sha256", $nueva_contrasena);
+
+            $stmt->bindParam(':nueva_contrasena', $hash);
             $stmt->bindParam(':tk', $tk);
 
             $stmt->execute();
