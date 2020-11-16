@@ -74,19 +74,11 @@ class Login
 
             $propuesta = $getOnePropuesta($usuario->id_usuarios);
 
-            if ($propuesta["error"]) {
-                return $propuesta;
-            }
-
             $usuario->propuesta = $propuesta["body"];
 
             $getOneProyectos = new SelectOneProyectos();
 
             $proyectos = $getOneProyectos($usuario->id_usuarios);
-
-            if ($proyectos["error"]) {
-                return $proyectos;
-            }
 
             $usuario->proyectos = $proyectos["body"];
 
